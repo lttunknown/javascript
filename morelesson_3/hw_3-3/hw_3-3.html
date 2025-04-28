@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  let arr = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
+  let arrCopy = arr.slice(); // Копія для збереження оригіналу
+
+  console.log("1. Перебір циклом while:");
+  let i = 0;
+  while (i < arr.length) {
+    console.log(arr[i]);
+    i++;
+  }
+
+  console.log("\n2. Перебір циклом for:");
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+
+  console.log("\n3. Числа з непарним індексом (while):");
+  i = 0;
+  while (i < arr.length) {
+    if (i % 2 !== 0) console.log(arr[i]);
+    i++;
+  }
+
+  console.log("\n4. Числа з непарним індексом (for):");
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 !== 0) console.log(arr[i]);
+  }
+
+  console.log("\n5. Парні значення (while):");
+  i = 0;
+  while (i < arr.length) {
+    if (arr[i] % 2 === 0) console.log(arr[i]);
+    i++;
+  }
+
+  console.log("\n6. Парні значення (for):");
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) console.log(arr[i]);
+  }
+
+  console.log("\n7. Заміна чисел, кратних 3, на 'okten':");
+  let modifiedArr = arr.slice();
+  for (let i = 0; i < modifiedArr.length; i++) {
+    if (modifiedArr[i] % 3 === 0) modifiedArr[i] = "okten";
+  }
+  console.log(modifiedArr);
+
+  console.log("\n8. Масив у зворотньому порядку:");
+  console.log(arr.slice().reverse());
+
+  console.log("\n9. Всі завдання у зворотньому порядку:");
+
+  console.log("\n9.1. while у зворотньому порядку:");
+  i = arr.length - 1;
+  while (i >= 0) {
+    console.log(arr[i]);
+    i--;
+  }
+
+  console.log("\n9.2. for у зворотньому порядку:");
+  for (let i = arr.length - 1; i >= 0; i--) {
+    console.log(arr[i]);
+  }
+
+  console.log("\n9.3. Числа з непарним індексом (while, зворотній порядок):");
+  i = arr.length - 1;
+  while (i >= 0) {
+    if (i % 2 !== 0) console.log(arr[i]);
+    i--;
+  }
+
+  console.log("\n9.4. Числа з непарним індексом (for, зворотній порядок):");
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (i % 2 !== 0) console.log(arr[i]);
+  }
+
+  console.log("\n9.5. Парні значення (while, зворотній порядок):");
+  i = arr.length - 1;
+  while (i >= 0) {
+    if (arr[i] % 2 === 0) console.log(arr[i]);
+    i--;
+  }
+
+  console.log("\n9.6. Парні значення (for, зворотній порядок):");
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] % 2 === 0) console.log(arr[i]);
+  }
+
+  console.log("\n9.7. Заміна кратних 3 на 'okten' у зворотньому порядку:");
+  let reversedModifiedArr = arr.slice();
+  for (let i = reversedModifiedArr.length - 1; i >= 0; i--) {
+    if (reversedModifiedArr[i] % 3 === 0) reversedModifiedArr[i] = "okten";
+  }
+  console.log(reversedModifiedArr);
+
+</script>
+
+</body>
+</html>

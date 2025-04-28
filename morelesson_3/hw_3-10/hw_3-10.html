@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  let mixedArray = [];
+
+  mixedArray[0] = 24;
+  mixedArray[1] = "Okter school";
+  mixedArray[2] = true;
+  mixedArray[3] = { name: "Viacheslav" };
+  mixedArray[4] = [1, 2, 3];
+  mixedArray[5] = null;
+  mixedArray[6] = undefined;
+  mixedArray[7] = function() {
+    return "I'm a function!";
+  };
+  mixedArray[8] = new Date();
+  mixedArray[9] = Symbol("unique");
+
+  for (let i = 0; i < mixedArray.length; i++) {
+    console.log(`Елемент ${i}:`, mixedArray[i], `(Тип: ${typeof mixedArray[i]})`);
+  }
+
+</script>
+
+</body>
+</html>

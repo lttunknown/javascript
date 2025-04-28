@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+  // 1
+  let evenNumbers = [];
+  for (let i = 2; i <= 100; i += 2) {
+    evenNumbers.push(i);
+  }
+  console.log("50 парних чисел:", evenNumbers);
+
+  let oddNumbers = [];
+  for (let i = 1; i <= 99; i += 2) {
+    oddNumbers.push(i);
+  }
+  console.log("50 непарних чисел:", oddNumbers);
+
+  let randomNumbers1 = [];
+  for (let i = 0; i < 20; i++) {
+    randomNumbers1.push(Math.floor(Math.random() * 100));
+  }
+  console.log("20 рандомних чисел (0-100):", randomNumbers1);
+
+  let randomNumbers2 = [];
+  for (let i = 0; i < 20; i++) {
+    randomNumbers2.push(Math.floor(Math.random() * (732 - 8 + 1)) + 8);
+  }
+  console.log("20 рандомних чисел (8-732):", randomNumbers2);
+
+
+// 2
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  for (let i = 2; i < arr.length; i += 3) {
+    console.log("Кожен третій елемент:", arr[i]);
+  }
+
+
+// 3
+  for (let i = 2; i < arr.length; i += 3) {
+    if (arr[i] % 2 === 0) {
+      console.log("Кожен третій парний елемент:", arr[i]);
+    }
+  }
+
+// 4
+  let filteredArr = [];
+  for (let i = 2; i < arr.length; i += 3) {
+    if (arr[i] % 2 === 0) {
+      filteredArr.push(arr[i]);
+    }
+  }
+  console.log("Новий масив (кожен третій парний):", filteredArr);
+
+// 5
+  let exampleArr = [1, 2, 3, 5, 7, 9, 56, 8, 67];
+  let result = [];
+  for (let i = 0; i < exampleArr.length - 1; i++) {
+    if (exampleArr[i + 1] % 2 === 0) {
+      result.push(exampleArr[i]);
+    }
+  }
+  console.log("Елементи, де сусід справа парний:", result);
+
+// 6
+  let purchases = [100, 250, 50, 168, 120, 345, 188];
+  let average = purchases.reduce((sum, price) => sum + price, 0) / purchases.length;
+  console.log("Середній чек:", average.toFixed(2));
+
+// 7
+  let randomArr = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100));
+  let multipliedArr = randomArr.map(num => num * 5);
+  console.log("Початковий масив:", randomArr);
+  console.log("Помножений на 5:", multipliedArr);
+
+// 8
+  let mixedArr = [10, "Hello", 25, "World", true, 42, false, 100];
+  let numbersOnly = mixedArr.filter(item => typeof item === "number");
+  console.log("Тільки числа:", numbersOnly);
+
+</script>
+
+</body>
+</html>

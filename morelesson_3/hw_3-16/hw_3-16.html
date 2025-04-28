@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    let books = [
+        {
+            title: "Гаррі Поттер і філософський камінь",
+            pages: 320,
+            authors: ["Джоан Роулінг"],
+            genres: ["Фентезі", "Пригоди", "Дитяча література"]
+        },
+        {
+            title: "Володар перснів: Хранителі персня",
+            pages: 423,
+            authors: ["Дж. Р. Р. Толкін"],
+            genres: ["Фентезі", "Епічне фентезі", "Пригоди"]
+        },
+        {
+            title: "Гра престолів",
+            pages: 694,
+            authors: ["Джордж Р. Р. Мартін"],
+            genres: ["Фентезі", "Політична драма", "Пригоди", "Епічне фентезі"]
+        },
+        {
+            title: "Місто",
+            pages: 511,
+            authors: ["Стівен Кінг", "Пітер Страуб"],
+            genres: ["Жахи", "Трилер"]
+        },
+        {
+            title: "Дюна",
+            pages: 604,
+            authors: ["Френк Герберт"],
+            genres: ["Наукова фантастика", "Космічна опера", "Політична драма"]
+        }
+    ];
+
+    let largestBook = books.reduce((max, book) => book.pages > max.pages ? book : max);
+    console.log("Найбільша книжка:", largestBook.title, `(${largestBook.pages} сторінок)`);
+
+    let maxGenres = Math.max(...books.map(book => book.genres.length));
+    let booksWithMaxGenres = books.filter(book => book.genres.length === maxGenres);
+    console.log("Книжки з найбільшою кількістю жанрів:", booksWithMaxGenres.map(b => b.title).join(", "));
+
+    let longestTitle = books.reduce((max, book) => book.title.length > max.title.length ? book : max);
+    console.log("Книжка з найдовшою назвою:", longestTitle.title, `(${longestTitle.title.length} символів)`);
+
+    let booksWithTwoAuthors = books.filter(book => book.authors.length === 2);
+    console.log("Книжки з 2 авторами:", booksWithTwoAuthors.map(b => b.title).join(", ") || "немає");
+
+    let booksWithOneAuthor = books.filter(book => book.authors.length === 1);
+    console.log("Книжки з 1 автором:", booksWithOneAuthor.map(b => b.title).join(", "));
+
+</script>
+
+</body>
+</html>

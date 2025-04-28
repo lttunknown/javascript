@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  let letters = ['a', 'b', 'c'];
+
+  // for
+
+  let wordFor = '';
+  for (let i = 0; i < letters.length; i++) {
+    wordFor += letters[i];
+  }
+  console.log("Слово (for):", wordFor);
+
+  // while
+
+  let wordWhile = '';
+  let i = 0;
+  while (i < letters.length) {
+    wordWhile += letters[i];
+    i++;
+  }
+  console.log("Слово (while):", wordWhile);
+
+  // for of
+
+  let wordForOf = '';
+  for (const letter of letters) {
+    wordForOf += letter;
+  }
+  console.log("Слово (for of):", wordForOf);
+
+</script>
+
+</body>
+</html>
