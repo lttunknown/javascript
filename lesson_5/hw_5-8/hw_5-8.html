@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  const createListFromPrimitives = (items) => {
+    const ul = document.createElement('ul');
+    items.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = typeof item === 'boolean' ? item.toString() : item;
+      ul.appendChild(li);
+    });
+
+    return ul;
+  };
+
+</script>
+
+</body>
+</html>
+<!--– створити функцію, яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список-->

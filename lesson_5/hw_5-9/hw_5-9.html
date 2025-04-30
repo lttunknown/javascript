@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  const renderUsers = (users) => {
+    if (!Array.isArray(users)) {
+      console.error('Функція очікує масив обʼєктів');
+      return;
+    }
+
+    const container = document.createElement('div');
+    container.className = 'users-container';
+
+    users.forEach(user => {
+      if (!user.id || !user.name || !user.age) {
+        console.warn('Обʼєкт має не всі необхідні поля', user);
+        return;
+      }
+
+      const userBlock = document.createElement('div');
+      userBlock.className = 'user-block';
+      userBlock.innerHTML = `
+      <h3>ID: ${user.id}</h3>
+      <p>Name: ${user.name}</p>
+      <p>Age: ${user.age}</p>
+      <hr>
+    `;
+      renderUsers(users);
+
+      container.appendChild(userBlock);
+    });
+
+    document.body.appendChild(container);
+  };
+
+</script>
+
+</body>
+</html>
+<!--– створити функцію, яка приймає масив об’єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об’єкту окремий блок.-->
