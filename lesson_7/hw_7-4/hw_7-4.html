@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    function Client(id, name, surname, phone, email, order) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.order = order;
+    }
+
+    let clients = [];
+
+    clients.push(new Client(1, 'kolya', 'qwerty', '+964657983', 'kolya@example.com' ['Ноутбук']));
+    clients.push(new Client(2, 'petya', 'qwerty', '+964657983', 'petya@example.com' ['Смартфон']));
+    clients.push(new Client(3, 'vasya', 'qwerty', '+964657983', 'vasya@example.com' ['Телевізор']));
+    clients.push(new Client(4, 'stanislav', 'qwerty', '+964657983', 'stanislav@example.com' ['Холодильник']));
+    clients.push(new Client(5, 'vyacheslav', 'qwerty', '+964657983', 'vyacheslav@example.com' ['Мотобайк']));
+    clients.push(new Client(6, 'pasha', 'qwerty', '+964657983', 'pasha@example.com' ['Кавоварка']));
+    clients.push(new Client(7, 'andrey', 'qwerty', '+964657983', 'andrey@example.com' ['Велосипед']));
+    clients.push(new Client(8, 'ivan', 'qwerty', '+964657983', 'ivan@example.com' ['Машина']));
+    clients.push(new Client(9, 'dmitro', 'qwerty', '+964657983', 'dmitro@example.com' ['Монітор']));
+    clients.push(new Client(10, 'oleksandr', 'qwerty', '+964657983', 'oleksandr@example.com' ['Навушники']));
+
+    console.log(clients);
+
+</script>
+
+</body>
+</html>
+<!--– створити конструктор для об’єктів Client з полями id, name, surname , phone, email, order (поле є масивом зі списком товарів)-->
+
+<!--створити пустий масив, наповнити його 10 об’єктами Client-->

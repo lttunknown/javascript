@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    Array.prototype.myForEach = function(fn) {
+        for (let i = 0; i < this.length; i++) {
+            fn(this[i]);
+        }
+    };
+
+    Array.prototype.myFilter = function(fn) {
+        const filtered = [];
+        for (let i = 0; i < this.length; i++) {
+            if (fn(this[i])) {
+                filtered.push(this[i]);
+            }
+        }
+        return filtered;
+    };
+
+    const nums = [1, 2, 3, 4, 5];
+
+    nums.myForEach(n => console.log(n));
+
+    const evens = nums.myFilter(n => n % 2 === 0);
+    console.log('Четные:', evens);
+
+</script>
+
+</body>
+</html>
+<!--*Через Array.prototype. створити власний foreach, filter-->
