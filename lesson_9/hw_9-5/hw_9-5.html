@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .course {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .course-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .property {
+            margin-bottom: 8px;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+        .property-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .modules-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 5px;
+        }
+        .modules-list li {
+            padding: 5px 10px;
+            margin: 3px 0;
+            background-color: #e8f4fc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const coursesArray = [
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'git', 'java core', 'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'python core', 'python advanced']
+        },
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js', 'python', 'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
+
+    coursesArray.forEach(course => {
+
+        const courseBlock = document.createElement('div');
+        courseBlock.className = 'course';
+
+        const titleBlock = document.createElement('div');
+        titleBlock.className = 'course-title';
+        titleBlock.textContent = course.title;
+        courseBlock.appendChild(titleBlock);
+
+        const monthBlock = document.createElement('div');
+        monthBlock.className = 'property';
+        monthBlock.innerHTML = `<span class="property-title">Тривалість у місяцях:</span> ${course.monthDuration}`;
+        courseBlock.appendChild(monthBlock);
+
+        const hourBlock = document.createElement('div');
+        hourBlock.className = 'property';
+        hourBlock.innerHTML = `<span class="property-title">Тривалість у годинах:</span> ${course.hourDuration}`;
+        courseBlock.appendChild(hourBlock);
+
+        const modulesBlock = document.createElement('div');
+        modulesBlock.className = 'property';
+        modulesBlock.innerHTML = '<span class="property-title">Модулі:</span>';
+
+        const modulesList = document.createElement('ul');
+        modulesList.className = 'modules-list';
+
+        course.modules.forEach(module => {
+            const moduleItem = document.createElement('li');
+            moduleItem.textContent = module;
+            modulesList.appendChild(moduleItem);
+        });
+
+        modulesBlock.appendChild(modulesList);
+        courseBlock.appendChild(modulesBlock);
+
+        document.body.appendChild(courseBlock);
+    });
+
+</script>
+
+</body>
+</html>
