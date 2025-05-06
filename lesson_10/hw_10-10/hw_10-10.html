@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <h1>Список об'єктів</h1>
+    <div id="items-container"></div>
+    <div class="controls">
+        <button id="prev-btn" disabled>Попередні</button>
+        <button id="next-btn">Наступні</button>
+    </div>
+</div>
+
+<script>
+
+    const items = Array.from({length: 100}, (_, i) => ({
+        id: i + 1,
+        name: `Об'єкт ${i + 1}`,
+        description: `Опис для об'єкта ${i + 1}`
+    }));
+
+    const itemsPerPage = 10;
+    let currentPage = 0;
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+
+    const itemsContainer = document.getElementById('items-container');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    function displayItems() {
+        itemsContainer.innerHTML = '';
+
+        const start = currentPage * itemsPerPage;
+        const end = start + itemsPerPage;
+        const pageItems = items.slice(start, end);
+
+        pageItems.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'item';
+            itemElement.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <small>ID: ${item.id}</small>
+                `;
+            itemsContainer.appendChild(itemElement);
+        });
+
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === totalPages - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) {
+            currentPage--;
+            displayItems();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            displayItems();
+        }
+    });
+
+    displayItems();
+</script>
+</body>
+</html>
+<!--***PAGINATION-->
+
+<!--зробити масив на 100 об’єктів та дві кнопки prev next-->
+
+<!--при завантаженні сторінки з’являються перші 10 об’єктів.-->
+
+<!--При натисканні next виводяться наступні 10 об’єктів-->
+
+<!--При натисканні prev виводяться попередні 10 об’єктів-->

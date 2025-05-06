@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="counter">0</div>
+
+<script>
+
+  let count = parseInt(localStorage.getItem('count')) || 0;
+
+  count = Number.isNaN(count) ? 1 : count + 1;
+  localStorage.setItem('count', count);
+
+  document.getElementById('counter').textContent = count;
+
+</script>
+
+</body>
+</html>
+<!--є сторінка, на якій є блок, в кому знаходиться цифра. Написати код, який при кожному перезавантажені сторінки буде додавати до неї +1-->

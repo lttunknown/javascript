@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<h1>Трекер</h1>
+
+<button id="tracker-btn">трекер</button>
+<button id="history-btn">історія</button>
+
+<div id="tracker">
+  <p>Останній візит: <span id="current-time"></span></p>
+</div>
+
+<div id="history" class="hidden">
+  <h2>Відвідування:</h2>
+  <div id="visits-list"></div>
+</div>
+
+<script>
+
+  const visits = JSON.parse(localStorage.getItem('visits')) || [];
+  const now = new Date().toLocaleString();
+  visits.push(now);
+  localStorage.setItem('visits', JSON.stringify(visits));
+
+  document.getElementById('current-time').textContent = now;
+
+  document.getElementById('tracker-btn').onclick = () => {
+    document.getElementById('tracker').classList.remove('hidden');
+    document.getElementById('history').classList.add('hidden');
+  };
+
+  document.getElementById('history-btn').onclick = () => {
+    document.getElementById('tracker').classList.add('hidden');
+    document.getElementById('history').classList.remove('hidden');
+
+    const visitsList = document.getElementById('visits-list');
+    visitsList.innerHTML = visits.map((visit, i) =>
+            `<p>${i + 1}. ${visit}</p>`
+    ).join('');
+  };
+
+  document.getElementById('tracker-btn').click();
+</script>
+
+</body>
+</html>
+<!--Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховище, в масив sessionsList зберігається інформація про дату та час відвідування сторінки. Є  сторінка sessionsListPage.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а малювати в DOM-->

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <style>
+    .price-box {
+      padding: 20px;
+      border: 1px solid #ccc;
+      display: inline-block;
+      margin: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+<div class="price-box">
+  Ціна: <span id="price">100</span> грн
+</div>
+
+<script>
+
+  const priceElement = document.getElementById('price');
+
+  const savedPrice = localStorage.getItem('savedPrice');
+  const lastUpdate = localStorage.getItem('lastUpdate');
+  const currentTime = new Date().getTime();
+
+  let price = savedPrice ? parseInt(savedPrice) : 100;
+  priceElement.textContent = price;
+
+  if (!lastUpdate || (currentTime - parseInt(lastUpdate)) >= 10000) {
+    price += 10;
+    priceElement.textContent = price;
+    localStorage.setItem('savedPrice', price);
+  }
+
+  localStorage.setItem('lastUpdate', currentTime);
+
+</script>
+
+</body>
+</html>
+<!--*** (подібне було вище, але…будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення “100грн”-->
+
+<!--при перезавантаженні сторінки до значення додається по 10грн, але !!! зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.-->
+
+<!--При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд, нічого не відбувається-->

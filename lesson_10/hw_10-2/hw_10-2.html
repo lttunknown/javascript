@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>Введіть ваш вік:</h2>
+<input type="number" id="ageInput" placeholder="Введіть ваш вік" min="1" max="120">
+<button id="checkBtn">Перевірити вік</button>
+<p id="result"></p>
+
+<script>
+
+  document.getElementById('checkBtn').addEventListener('click', function() {
+
+    const ageInput = document.getElementById('ageInput');
+    const age = parseInt(ageInput.value);
+    const resultElement = document.getElementById('result');
+
+    if (isNaN(age)) {
+      resultElement.textContent = "Будь ласка, введіть коректний вік!";
+      resultElement.style.color = "red";
+      return;
+    }
+
+    if (age < 18) {
+      resultElement.textContent = "Вам менше 18 років. Доступ обмежений.";
+      resultElement.style.color = "red";
+    } else {
+      resultElement.textContent = "Вам 18 або більше років. Доступ дозволено!";
+      resultElement.style.color = "green";
+    }
+  });
+
+</script>
+
+</body>
+</html>
+<!--– створити інпут, який приймає вік людини, та кнопку, яка підтверджує дію. При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік, чи менше він за 18, та повідомити про це користувача-->
+
